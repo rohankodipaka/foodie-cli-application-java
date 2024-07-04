@@ -11,6 +11,7 @@ public class Main {
         // CustomerRepository customerRepository = new CustomerRepository();
         // System.out.println(customerRepository.getAllCustomers());
 
+        // 1. check customer registration and login.
         Menu menu = new Menu();
         menu.displayMainMenu();
 
