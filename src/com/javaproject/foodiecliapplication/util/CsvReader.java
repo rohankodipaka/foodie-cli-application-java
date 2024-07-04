@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import com.javaproject.foodiecliapplication.model.Customer;
+import com.javaproject.foodiecliapplication.model.Dish;
 
 public class CsvReader {
 
@@ -38,6 +39,36 @@ public class CsvReader {
         }
 
         return customerList;
+    }
+
+
+    public List<Dish> readDishesFromCsv(){
+
+        String dishCsvFilePath = "D:\\workspace-java\\foodie-cli-application-java\\data\\dishes.csv";
+        List<Dish> dishesList = new ArrayList<>();
+        String line;
+
+        try(BufferedReader br = new BufferedReader(new FileReader(dishCsvFilePath))){
+            String CsvSplitBy = ",";
+            br.readLine();
+            while((line = br.readLine()) != null){
+                String[] data = line.split(CsvSplitBy);
+                Dish dish = new Dish();
+                dish.setId(data[0])
+                        .setName(data[1])
+                        .setDescription(data[2])
+                        .setPrice(Double.parseDouble(data[3]));
+                dishesList.add(dish);
+            }
+
+        } catch (IOException e){
+            System.out.println("File not found : " + dishCsvFilePath);
+            System.exit(0);
+            e.printStackTrace();
+        }
+
+        return dishesList;
+
     }
 
 
