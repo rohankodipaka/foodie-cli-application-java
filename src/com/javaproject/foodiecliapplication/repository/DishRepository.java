@@ -1,5 +1,6 @@
 package com.javaproject.foodiecliapplication.repository;
 
+import com.javaproject.foodiecliapplication.exceptions.DishNotFoundException;
 import com.javaproject.foodiecliapplication.model.Dish;
 import com.javaproject.foodiecliapplication.util.CsvReader;
 
@@ -15,6 +16,10 @@ public class DishRepository {
         this.dishesList = csvReader.readDishesFromCsv();
     }
 
+    public List<Dish> getDishesList(){
+        return this.dishesList;
+    }
+
     public Dish save(Dish dish){
         this.dishesList.add(dish);
         return dish;
@@ -25,7 +30,7 @@ public class DishRepository {
     }
 
     public Optional<Dish> updateDish(Dish dishToBeUpdated){
-        return this.dishesList.stream() .filter(dish -> dish.getId() == dishToBeUpdated.getId())
+        return this.dishesList.stream() .filter(dish -> dish.getId().equals(dishToBeUpdated.getId()))
                 .findFirst()
                 .map(dish -> {
                     dish.setName(dishToBeUpdated.getName());
@@ -36,8 +41,9 @@ public class DishRepository {
         });
     }
 
-    public void deleteDish(Dish dish){
+    public Dish deleteDish(Dish dish){
         dishesList.remove(dish);
+        return dish;
     }
 
 
