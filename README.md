@@ -45,4 +45,4 @@ Once the application is running, follow the on-screen prompts to navigate throug
 For any questions, feedback, or support, please contact:
 
 - E-mail: rohankodipaka777@gmail.com
-- GitHub: [Your GitHub Profile](https://github.com/rohankodipaka)
+- GitHub: [GitHub Profile](https://github.com/rohankodipaka)
