@@ -2,8 +2,11 @@ package com.javaproject.foodiecliapplication.controller;
 
 
 import com.javaproject.foodiecliapplication.exceptions.CustomerExistException;
+import com.javaproject.foodiecliapplication.exceptions.CustomerNotFoundException;
 import com.javaproject.foodiecliapplication.model.Customer;
 import com.javaproject.foodiecliapplication.service.CustomerServiceImpl;
+
+import java.util.List;
 
 public class CustomerController {
 
@@ -18,5 +21,18 @@ public class CustomerController {
     public Customer save(Customer customer) throws CustomerExistException {
         return this.customerService.save(customer);
     }
+
+    public List<Customer> getAllCustomers(){
+        return this.customerService.getAllCustomers();
+    }
+
+    public void deleteCustomer(String id) throws CustomerNotFoundException {
+        this.customerService.deleteCustomer(id);
+    }
+
+    public Customer validateCustomerLogin(String email, String password) throws CustomerNotFoundException{
+        return this.customerService.validateCustomerLogin(email, password);
+    }
+
 
 }

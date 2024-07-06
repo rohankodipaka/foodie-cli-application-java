@@ -30,6 +30,13 @@ public class CustomerRepository {
        return this.customerList.stream().filter(customer -> customer.getId().equals(id)).findFirst();
     }
 
+    public Optional<Customer> findByEmailAndPassword(String email, String password){
+       return this.customerList.stream().filter(customer -> customer.getEmail().equalsIgnoreCase(email) && customer.getPassword().equals(password)).findFirst();
+    }
+
+    public void deleteCustomer(Customer customer){
+        this.customerList.remove(customer);
+    }
 
 
 }
