@@ -33,4 +33,8 @@ public class Factory {
         return new DishController(getDishService());
     }
 
+    public static CsvReader getCsvReader(){
+        return new CsvReader();
+    }
+
 }
