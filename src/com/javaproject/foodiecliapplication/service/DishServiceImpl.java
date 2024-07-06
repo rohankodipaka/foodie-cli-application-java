@@ -48,7 +48,10 @@ public class DishServiceImpl implements DishService{
     }
 
     @Override
-    public Dish deleteDish(Dish dish) {
-        return this.dishRepository.deleteDish(dish);
+    public void delete(String id) throws DishNotFoundException{
+        Optional<Dish> dishById = this.dishRepository.getDishById(id);
+        if(dishById.isEmpty())
+            throw new DishNotFoundException("Dish not found with Id : " + id);
+        this.dishRepository.deleteDish(dishById.get());
     }
 }

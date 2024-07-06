@@ -3,6 +3,7 @@ package com.javaproject.foodiecliapplication.repository;
 import com.javaproject.foodiecliapplication.exceptions.DishNotFoundException;
 import com.javaproject.foodiecliapplication.model.Dish;
 import com.javaproject.foodiecliapplication.util.CsvReader;
+import com.javaproject.foodiecliapplication.util.Factory;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,8 +13,8 @@ public class DishRepository {
     private List<Dish> dishesList;
 
     public DishRepository() {
-        CsvReader csvReader = new CsvReader();
-        this.dishesList = csvReader.readDishesFromCsv();
+        this.dishesList = Factory.getCsvReader().readDishesFromCsv();
+
     }
 
     public List<Dish> getDishesList(){
@@ -29,8 +30,8 @@ public class DishRepository {
         return this.dishesList.stream().filter(dish -> dish.getId().equals(id)).findFirst();
     }
 
-    public Optional<Dish> updateDish(Dish dishToBeUpdated){
-        return this.dishesList.stream() .filter(dish -> dish.getId().equals(dishToBeUpdated.getId()))
+    public Dish updateDish(Dish dishToBeUpdated){
+         Optional<Dish> dishOptional = this.dishesList.stream() .filter(dish -> dish.getId().equals(dishToBeUpdated.getId()))
                 .findFirst()
                 .map(dish -> {
                     dish.setName(dishToBeUpdated.getName());
@@ -39,11 +40,11 @@ public class DishRepository {
                     dish.setPrice(dishToBeUpdated.getPrice());
                     return dish;
         });
+         return dishOptional.orElse(null);
     }
 
-    public Dish deleteDish(Dish dish){
-        dishesList.remove(dish);
-        return dish;
+    public void deleteDish(Dish dish){
+        this.dishesList.remove(dish);
     }
 
 
