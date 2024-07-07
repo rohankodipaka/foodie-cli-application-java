@@ -29,7 +29,7 @@ public class Restaurant {
     private String id;
     private String name;
     private String address;
-    private List<Dish> menu;
+    private List<String> menu;
 
     public Restaurant() {
     }
@@ -61,11 +61,11 @@ public class Restaurant {
         return this;
     }
 
-    public List<Dish> getMenu() {
+    public List<String> getMenu() {
         return menu;
     }
 
-    public Restaurant setMenu(List<Dish> menu) {
+    public Restaurant setMenu(List<String> menu) {
         this.menu = menu;
         return this;
     }
