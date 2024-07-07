@@ -4,9 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.javaproject.foodiecliapplication.model.Customer;
 import com.javaproject.foodiecliapplication.model.Dish;
+import com.javaproject.foodiecliapplication.model.Restaurant;
 
 public class CsvReader {
 
@@ -69,6 +71,32 @@ public class CsvReader {
 
         return dishesList;
 
+    }
+
+    public List<Restaurant> readRestaurantsFromCsv(){
+        String restaurantCsvFilePath = "D:\\workspace-java\\foodie-cli-application-java\\data\\restaurants.csv";
+        List<Restaurant> restaurantList = new ArrayList<>();
+        String line;
+
+        try(BufferedReader br = new BufferedReader(new FileReader(restaurantCsvFilePath))){
+            String CsvSplitBy = ",";
+            br.readLine();
+            while((line = br.readLine()) != null){
+                String[] data = line.split(CsvSplitBy);
+                Restaurant restaurant = new Restaurant();
+                restaurant.setId(data[0])
+                        .setName(data[1])
+                        .setAddress(data[2])
+                        .setMenu(Arrays.asList(data[3].split(":")));
+                restaurantList.add(restaurant);
+            }
+
+        } catch (IOException e){
+            System.out.println("File not Found" + restaurantCsvFilePath);
+            System.exit(0);
+            e.printStackTrace();
+        }
+        return restaurantList;
     }
 
 
