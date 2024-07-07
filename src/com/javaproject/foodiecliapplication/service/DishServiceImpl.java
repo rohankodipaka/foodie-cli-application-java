@@ -44,7 +44,7 @@ public class DishServiceImpl implements DishService{
         Optional<Dish> dishById = this.dishRepository.getDishById(dishToBeUpdated.getId());
         if(!dishById.isPresent())
             throw new DishNotFoundException("Dish not found with Id : " +dishToBeUpdated.getId());
-        return this.dishRepository.save(dishToBeUpdated);
+        return this.dishRepository.updateDish(dishToBeUpdated);
     }
 
     @Override
