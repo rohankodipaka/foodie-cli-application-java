@@ -1,5 +1,6 @@
 package com.javaproject.foodiecliapplication.controller;
 
+
 import com.javaproject.foodiecliapplication.exceptions.RestaurantAlreadyExistException;
 import com.javaproject.foodiecliapplication.exceptions.RestaurantNotFoundException;
 import com.javaproject.foodiecliapplication.model.Restaurant;
@@ -34,5 +35,7 @@ public class RestaurantController {
     public void deleteRestaurant(String id) throws RestaurantNotFoundException{
         this.restaurantService.delete(id);
     }
+
+
 
 }
