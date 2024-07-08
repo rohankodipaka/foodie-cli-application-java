@@ -1,7 +1,9 @@
 package com.javaproject.foodiecliapplication.service;
 
+import com.javaproject.foodiecliapplication.exceptions.DishNotFoundException;
 import com.javaproject.foodiecliapplication.exceptions.RestaurantAlreadyExistException;
 import com.javaproject.foodiecliapplication.exceptions.RestaurantNotFoundException;
+import com.javaproject.foodiecliapplication.model.Dish;
 import com.javaproject.foodiecliapplication.model.Restaurant;
 
 import java.util.List;
@@ -13,5 +15,7 @@ public interface RestaurantService {
     public Restaurant update(Restaurant restaurantTobeUpdated) throws RestaurantNotFoundException;
     public Restaurant getRestaurantById(String id) throws RestaurantNotFoundException;
     public void delete(String id) throws RestaurantNotFoundException;
+
+    public List<Dish> getDishItems(String id) throws RestaurantNotFoundException, DishNotFoundException;
 
 }
