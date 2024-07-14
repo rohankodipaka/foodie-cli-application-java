@@ -1,5 +1,6 @@
 package com.javaproject.foodiecliapplication.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -29,11 +30,11 @@ public class Order {
 
 
     private String id;
-    Customer customer;
+    private Customer customer;
     private Restaurant restaurant;
     private List<Dish> dishes;
     private double price;
-    private Date orderDate;
+    private LocalDate orderDate;
 
 
 
@@ -44,48 +45,54 @@ public class Order {
         return id;
     }
 
-    public void setId(String id) {
+    public Order setId(String id) {
         this.id = id;
+        return this;
     }
 
     public Customer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public Order setCustomer(Customer customer) {
         this.customer = customer;
+        return this;
     }
 
     public Restaurant getRestaurant() {
         return restaurant;
     }
 
-    public void setRestaurant(Restaurant restaurant) {
+    public Order setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
+        return this;
     }
 
     public List<Dish> getDishes() {
         return dishes;
     }
 
-    public void setDishes(List<Dish> dishes) {
+    public Order setDishes(List<Dish> dishes) {
         this.dishes = dishes;
+        return this;
     }
 
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public Order setPrice(double price) {
         this.price = price;
+        return this;
     }
 
-    public Date getOrderDate() {
+    public LocalDate getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(Date orderDate) {
+    public Order setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
+        return this;
     }
 
     @Override
