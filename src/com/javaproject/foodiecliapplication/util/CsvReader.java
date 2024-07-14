@@ -99,7 +99,4 @@ public class CsvReader {
         return restaurantList;
     }
 
-
-
-
 }

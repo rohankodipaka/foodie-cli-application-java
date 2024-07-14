@@ -39,8 +39,8 @@ public class Menu {
                 case 1 -> new CustomerMenu().displayMenu();
                 case 2 -> new RestaurantsMenu().displayMenu();
                 case 3 -> new DishesMenu().displayMenu();
-//                case 4 -> new OrdersMenu().displayMenu();
-                case 4 -> {
+                case 4 -> new OrdersMenu().displayMenu();
+                case 5 -> {
                     System.out.println("Thank you for using Foodie App. See You Again !");
                     System.exit(0);
                 }
