@@ -14,6 +14,8 @@ public class CustomerServiceImpl implements CustomerService{
     //CustomerRepository dependency is added here.
     private CustomerRepository customerRepository;
 
+    private Customer currentLoggedInCustomer;
+
     //create constructor to avail the customerRepository object
     public CustomerServiceImpl(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
@@ -50,5 +52,18 @@ public class CustomerServiceImpl implements CustomerService{
             throw new CustomerNotFoundException("Invalid email and password");
         return byEmailAndPassword.get();
     }
+
+
+    @Override
+    public void setCurrentLoggedInCustomer(Customer customer) {
+        this.currentLoggedInCustomer = customer;
+    }
+
+    @Override
+    public Customer getCurrentLoggedInCustomer() {
+        return this.currentLoggedInCustomer;
+    }
+
+
 
 }
