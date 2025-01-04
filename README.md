@@ -10,36 +10,6 @@ The Foodie CLI Application is a Java-based command-line interface (CLI) applicat
 - **Order Placement**: Place orders for selected dishes from the chosen restaurant.
 - **Order Summary**: View a summary of your order before finalizing it.
 
-## Installation
-To install and run the Restaurant CLI Application, follow these steps:
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/rohankodipaka/foodie-cli-application-java.git
-    ```
-2. **CD into the application folder**
-   ```bash
-   cd foodie-cli-application-java
-    ```
-3. **Compile the application**
-   ```bash
-    javac -d bin src/*.java
-    ```  
-4. **Run the application**
-   ```bash
-    java -cp bin Main
-    ``` 
-
-**Usage**
-
-Once the application is running, follow the on-screen prompts to navigate through the menu.
-
-- **Register/Login**: Register as a new customer or login if you already have an account.
-- **Browse Restaurants**: View the list of available restaurants.
-- **View Dishes**: Select a restaurant to view its menu and dish descriptions.
-- **Place an Order**: Choose dishes and place an order.
-- **View Order History**: Access your past orders.
-
 ## Contact
 
 For any questions, feedback, or support, please contact:
